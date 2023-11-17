@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>card</title>
+</head>
+<body>
+    <div class="card">
+        <img src="src/clouds.png" alt="clear" class="clear-image">
+        <h1>Bhubaneswar</h1>
+
+        <!-- space -->
+
+        <div class="details">
+            <div class="col">
+                <img src="src/temp.png" alt="temperature">
+                <div>
+                    <p class="temperature" id="temperatureDisplay"></p>
+                    <p>Temperature</p>
+                </div>
+            </div>
+    
+            <div class="col">
+                <img src="src/humidity.png" alt="humidity">
+                <div>
+                    <p class="humidity" id="humidityDisplay"></p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+<!-- <script>
+    const apiUrl = 'https://api.thingspeak.com/channels/2299033/feeds.json?results=2';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const temperature1 = data.feeds[0].field1;
+                //const temperature2 = data.feeds[1].field1;
+                const humidity1 = data.feeds[0].field2;
+                //const humidity2 = data.feeds[1].field2;
+
+                const temperatureDisplay = document.getElementById('temperatureDisplay');
+            temperatureDisplay.innerHTML = `${temperature1}°C`;
+
+            const humidityDisplay = document.getElementById('humidityDisplay');
+            humidityDisplay.innerHTML = `${humidity1}%`;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+</script> -->
+<script>
+    function fetchDataAndDisplay() {
+        const apiUrl = 'https://api.thingspeak.com/channels/2299033/feeds.json?results=2';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const temperature1 = data.feeds[0].field1;
+                const humidity1 = data.feeds[0].field2;
+
+                const temperatureDisplay = document.getElementById('temperatureDisplay');
+                temperatureDisplay.innerHTML = `${temperature1}°C`;
+
+                const humidityDisplay = document.getElementById('humidityDisplay');
+                humidityDisplay.innerHTML = `${humidity1}%`;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Initial fetch when the page loads
+    fetchDataAndDisplay();
+
+    // Periodically fetch and update the data every 5 seconds
+    setInterval(fetchDataAndDisplay, 5000);
+</script>
+</html>

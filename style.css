@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+background: linear-gradient(to right, #ff8a00, #da1b60, #4CAF50, #2196F3);
+    background-size: 400% 200%;
+    animation: changeGradient 32s linear infinite; /* Each gradient transition takes 8 seconds, and there are 4 gradients. So, the total duration is 32 seconds. */
+}
+
+.card{
+    width: 60%;
+    max-width: 470px;
+    background-color: rgb(212, 119, 119);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    margin: 100px auto 0;
+    padding: 40px 30px; 
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.clear-image{
+    width: 100px;
+    height: 100px;
+}
+
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 0;
+    padding: 0 10px;
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
